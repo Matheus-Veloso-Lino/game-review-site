@@ -1,6 +1,7 @@
 # Game Review Site
 
 Projeto de Landing page de um site de review, ofertas, guias e atualizações de jogos, para aprendizado de novas técnicas e habilidades utilizadas diretamente no mercado.
+Link do site: https://matheus-veloso-lino.github.io/game-review-site/
 
 ## Técnologia usada 
 - CSS
