@@ -1,0 +1,201 @@
+/* 1. Reset básico para remover margens padrão e definir o box-sizing */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Definir a altura da página para preencher a tela */
+html, body {
+    height: 100%;
+}
+
+/* 3. Estilos base do corpo (fonte, cor de fundo, etc.) */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: sans-serif; /* Ou sua fonte de preferência */
+    background-color: #e0e0e0; /* Exemplo de cor de fundo */
+}
+
+/* 4. Melhorar a visualização de imagens e mídia */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 5. Remover estilos padrão de listas e links */
+ol, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav ul {
+    justify-content: center;
+    margin-top: 20px;
+    display: flex;
+    list-style-type: none; /* Removes bullet points */
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: rgb(150, 209, 209);
+    overflow: hidden; /* Recommended for float layouts */
+    border-radius: 10px;
+}
+
+nav li a {
+    justify-content: center;
+    font-size: 25px;
+   display: flex; /* Makes the entire link area clickable and allows padding */
+   color: black;
+   text-decoration: none; /* Removes underlines */
+   padding: 14px 16px;
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+a::after {
+    opacity: 100%;
+  content: "";
+  position: sticky;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: #949090;
+  transition: width 0.3s, height 0.3s, left 0.3s, top 0.3s;
+  z-index: -1;
+}
+
+a:hover {
+  color: #ff0000;
+}
+
+a:hover::after {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+nav .logo {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    margin-right: 20px; /* Espaçamento entre o logo e os links */
+}
+
+.container {
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("background-img.png");
+    background-size: cover;
+    background-position: top;
+    max-width: 1200px;
+    height: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container-title {
+    -webkit-text-stroke-width: 0.2px; /* Defines the width of the outline */
+    -webkit-text-stroke-color: black; /* Defines the color of the outline */
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.container-description {
+    -webkit-text-stroke-width: 0.2px; /* Defines the width of the outline */
+    -webkit-text-stroke-color: black; /* Defines the color of the outline */
+    color: white;
+    margin-top: 20px;
+    font-size: 18px;
+    max-width: 800px;
+    text-align: left;
+    font-size: 25px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-content {
+    position: center;
+    padding: 20px;
+}
+
+.post-heading {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.post-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita a descrição a 3 linhas */
+    line-clamp: 3; /* Compatibilidade com padrão */
+    -webkit-box-orient: vertical;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%; /* opcional, pra não colar nas bordas */
+    font-size: 15px;
+    font-family: poppins;
+    color: #000000;
+    overflow: hidden;
+    }
+
+.img-wrap {
+    height: 180px;
+    overflow: hidden;
+}
+
+.img-wrap:hover .img-inner {
+    transform: scale(1.1); /* Zoom suave na imagem */
+}
+
+.img-inner {
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: 120%; /* Aumenta o tamanho da imagem para criar um efeito de zoom */
+    background-position: 10% center;
+    transition: transform 0.6s ease;
+}
+
+.card:hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for both transform and shadow */
+    transform: translateY(-5px); /* Move a carta para cima */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Deepens shadow for depth */
+}
+
+.post-date {
+    padding-bottom: 5px;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888888;
+}
